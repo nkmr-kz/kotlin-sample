@@ -29,6 +29,10 @@ fun main(args:Array<String>){
     // 3項演算子
     println(if( 3 > 2 ) 3 else 2)
 
+    val iList = mutableListOf<Int>(1,2)
+    println(iList)
+    iList.add(3)
+    println(iList)
     val items = listOf<String>("apple","banana","orange")
     for (item in items){
         println(item)
@@ -85,7 +89,33 @@ fun main(args:Array<String>){
     // person.name = "taka" // set出来ない
     person.age = 30 // setできる
     println(person.age)
+
+    val map = mapOf(1 to "One" )
+    println(map[1])
+    val imap = mutableMapOf(1 to "One")
+    imap[2]="2"
+    println(imap)
+    val i = 1
+    println(imap[i])
+
+    val personData = PersonData("naka")
+    println(personData.name)
+    personData.printName()
+
+    // 関数リテラル
+    val func : (Int, Int) -> Int = { a: Int, b: Int -> a + b }
+    println(func(1,2))
+    val func2: (Int) -> Int = { it * it}
+    println(func2(9))
+
 }
+
+data class PersonData (val name:String){
+    fun printName(){
+        println(this.name)
+    }
+}
+
 
 // val はreadonly, valはwritable
 class Person(val name:String, var age: Int){
